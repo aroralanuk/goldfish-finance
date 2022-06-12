@@ -1,0 +1,27 @@
+[package]
+name = "goldfish-finance"
+version = "0.1.0"
+description = "Created with Anchor"
+edition = "2021"
+
+[lib]
+crate-type = ["cdylib", "lib"]
+name = "goldfish_finance"
+path = "src/lib.rs"
+
+[features]
+no-entrypoint = []
+no-idl = []
+no-log-ix-name = []
+cpi = ["no-entrypoint"]
+default = []
+
+[profile.release]
+overflow-checks = true
+
+[dependencies]
+bytemuck = "1.7"
+anchor-lang = "0.24.2"
+anchor-spl = "0.24.2"
+pyth-sdk-solana = "0.4.1"
+jet-proto-math = { git = "https://github.com/jet-lab/program-libraries", branch = "main" }
